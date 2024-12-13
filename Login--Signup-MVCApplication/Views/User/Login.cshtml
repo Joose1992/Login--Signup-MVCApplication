@@ -1,0 +1,42 @@
+﻿@model RegisterViewModel
+<div id="results" class="text-center">
+     @if (!String.IsNullOrEmpty(Model.ActionMessage))
+    { 
+        string colorClass = Model.IsActionSuccess ? "alert-success" : "alert-danger";
+
+        <div class="alert @colorClass alert-dismissible fade show" role="alert">
+            <strong>@Model.ActionMessage</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    } 
+</div>
+<section class="sign-in">
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img src="~/signin-image.jpg" alt="sing up image"></figure>
+                <a href="~/User/Register" class="btn btn-secondary">Create an account</a>
+            </div>
+
+            <div class="signin-form">
+                <h2 class="form-title">Sign In</h2>
+                <form method="post" asp-controller="User" asp-action="Login">
+                    <div class="form-group">
+                        <label for="Username"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" required name="Username" id="Username" placeholder="User Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Password"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" required name="Password" id="Password" placeholder="Password" />
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                    </div>
+                    <div class="form-group form-button">
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

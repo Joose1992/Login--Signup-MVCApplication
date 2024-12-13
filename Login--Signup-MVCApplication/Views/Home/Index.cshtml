@@ -1,0 +1,42 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    #logoutButton {
+        margin-bottom: 20px;
+
+    }
+</style>
+<div id="results" class="text-center">
+    @if (!String.IsNullOrEmpty(Model.ActionMessage))
+    {
+        string colorClass = Model.IsActionSuccess ? "alert-success" : "alert-danger";
+        <div class="alert @colorClass alert-dismissible fade show" role="alert">
+            <strong>@Model.ActionMessage</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+</div>
+<section class="sign-in">
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img src="~/thumbsupemoji.jpeg" alt="sing up image"></figure>
+            </div>
+
+            <div class="signin-form">
+                <form method="post" asp-controller="User" asp-action="Logout">
+                    <h2 class="form-title"><strong>WELCOME!!</strong></h2>
+                    <h6>This is a simple demo project to show the process of login in and register using hash password.</h6>
+                    <h6>Click the button below to log out!</h6>
+                    <h5>Thanks!!</h5>
+                    <div class="form-group form-button">
+                        <button type="submit" class="form-submit">Logout</button>
+                    </div>
+                </form>
+            </div>
+            <br />
+        </div>
+    </div>
+</section>
